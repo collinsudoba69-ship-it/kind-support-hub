@@ -52,8 +52,13 @@ const articles = [
   "View platform announcements",
 ];
 
-export function BybitSupportLayout() {
+export function BybitSupportLayout({ site }: { site: SupportSite }) {
+  const method = CONTACT_METHODS.find((m) => m.id === site.contactMethod);
+  const MethodIcon = METHOD_ICONS[site.contactMethod] ?? Mail;
+  const cta = METHOD_CTA[site.contactMethod] ?? "Contact support";
+  const href = contactHref(site.contactMethod, site.contactValue);
   return (
+
     <div className="min-h-screen bg-background text-foreground antialiased">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
