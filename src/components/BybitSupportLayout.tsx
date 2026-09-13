@@ -142,15 +142,16 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
               <LifeBuoy className="size-8 text-accent" aria-hidden />
               <h2 className="mt-5 text-2xl font-bold">Still need assistance?</h2>
               <p className="mt-3 text-sm leading-6 text-background/70">
-                Submit a case through Bybit’s official support form. This page never redirects to private email, phone, or messaging accounts.
+                Reach the support channel set for this desk and an agent will help you.
               </p>
               <Button asChild size="lg" className="mt-7 w-full bg-accent font-bold text-accent-foreground hover:bg-accent/90">
-                <a href={OFFICIAL_CASE_URL} target="_blank" rel="noopener noreferrer">
-                  <FileQuestion className="size-5" aria-hidden />
-                  Open official support
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <MethodIcon className="size-5" aria-hidden />
+                  {cta}
                 </a>
               </Button>
-              <p className="mt-4 text-center text-xs text-background/60">You’ll continue on www.bybit.com</p>
+              <p className="mt-4 text-center text-xs text-background/60">{method?.label ?? "Contact"}: {site.contactValue}</p>
+
             </aside>
           </div>
         </section>
