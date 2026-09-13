@@ -128,9 +128,10 @@ export function SupportWizard({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-xl gap-5 rounded-3xl border-border/70 bg-popover p-6 shadow-panel sm:p-7">
         <DialogHeader className="space-y-2 text-left">
-          <DialogTitle className="font-display text-2xl">{STEPS[step].title}</DialogTitle>
+          <DialogTitle className="font-display text-2xl">{STEPS[step]?.title}</DialogTitle>
           <DialogDescription className="text-base leading-snug text-muted-foreground">
-            {STEPS[step].description}
+            {STEPS[step]?.description}
+
           </DialogDescription>
         </DialogHeader>
 
