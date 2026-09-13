@@ -388,7 +388,7 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded px-5 py-3 text-sm font-bold shadow-xl ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold shadow-xl ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
         style={{ backgroundColor: BN_YELLOW, color: BN_BLACK, boxShadow: `0 20px 40px -12px ${BN_YELLOW_DARK}66` }}
       >
         <Icon className="size-5" />
