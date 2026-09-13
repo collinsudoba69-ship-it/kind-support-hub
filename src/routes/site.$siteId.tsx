@@ -10,6 +10,7 @@ import { CoinbaseSupportLayout } from "@/components/CoinbaseSupportLayout";
 import { BinanceSupportLayout } from "@/components/BinanceSupportLayout";
 import { BybitSupportLayout } from "@/components/BybitSupportLayout";
 import { CashAppSupportLayout } from "@/components/CashAppSupportLayout";
+import { ChmeSupportLayout } from "@/components/ChmeSupportLayout";
 
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";

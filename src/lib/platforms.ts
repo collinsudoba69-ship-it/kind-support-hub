@@ -30,7 +30,7 @@ export const PLATFORMS: Platform[] = [
   { id: "skrill", name: "Skrill", mark: "S", tint: "oklch(0.60 0.20 320)" , domain: "skrill.com" },
   { id: "payoneer", name: "Payoneer", mark: "Pa", tint: "oklch(0.65 0.18 20)" , domain: "payoneer.com" },
   { id: "western-union", name: "Western Union", mark: "WU", tint: "oklch(0.78 0.17 80)" , domain: "westernunion.com" },
-  { id: "chime", name: "Chime", mark: "Ch", tint: "oklch(0.75 0.17 155)" , domain: "chime.com" },
+  { id: "chime", name: "CHME", mark: "Ch", tint: "oklch(0.75 0.17 155)" , domain: "chime.com" },
   { id: "robinhood", name: "Robinhood", mark: "RH", tint: "oklch(0.75 0.19 140)" , domain: "robinhood.com" },
   { id: "other", name: "Other", mark: "?", tint: "oklch(0.65 0.02 60)"  },
 ];
