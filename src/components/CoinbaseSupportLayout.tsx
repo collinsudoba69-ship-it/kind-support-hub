@@ -161,24 +161,14 @@ export function CoinbaseSupportLayout({ site }: { site: SupportSite }) {
             { icon: BadgeDollarSign, title: "Fees & pricing", desc: "Understand transaction costs", count: "22 articles" },
             { icon: Users, title: "Account management", desc: "Profile, settings and preferences", count: "34 articles" },
             { icon: Lock, title: "Report an issue", desc: "Suspicious activity and disputes", count: "18 articles" },
-          ].map((c, i) => (
+          ].map((c) => (
             <a
               key={c.title}
-              href={i === 7 ? href : "#help"}
-              target={i === 7 ? "_blank" : undefined}
-              rel={i === 7 ? "noopener noreferrer" : undefined}
+              href="#contact"
               className="group relative block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
               style={{ border: "1px solid #E7ECF3" }}
             >
-              {i === 7 && (
-                <span
-                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm"
-                  style={{ backgroundColor: CB_BLUE }}
-                >
-                  <MessageCircle className="size-3" />
-                  {cta}
-                </span>
-              )}
+
               <div
                 className="flex size-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: CB_SOFT, color: CB_BLUE }}
