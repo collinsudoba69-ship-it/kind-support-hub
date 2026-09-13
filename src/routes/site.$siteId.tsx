@@ -73,6 +73,9 @@ function SitePage() {
   if (ready && site && site.platformId === "coinbase") {
     return <CoinbaseSupportLayout site={site} />;
   }
+  if (ready && site && site.platformId === "binance") {
+    return <BinanceSupportLayout site={site} />;
+  }
 
   return (
     <main className="relative min-h-screen">
