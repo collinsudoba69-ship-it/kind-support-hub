@@ -91,17 +91,6 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button
-                  asChild
-                  size="xl"
-                  className="group h-12 rounded-full bg-[#0070ba] px-6 text-sm font-semibold text-white shadow-lg shadow-[#0070ba]/20 transition-all hover:bg-[#005ea6] hover:shadow-xl hover:shadow-[#0070ba]/30"
-                >
-                  <a href={href} target="_blank" rel="noopener noreferrer">
-                    <Icon className="size-5" />
-                    {cta}
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                </Button>
                 <a
                   href="#help"
                   className="inline-flex h-12 items-center justify-center rounded-full border border-[#001c64]/15 px-6 text-sm font-semibold text-[#001c64] transition-colors hover:border-[#001c64]/30 hover:bg-[#001c64]/5"
@@ -109,6 +98,7 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
                   How it works
                 </a>
               </div>
+
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#001c64]/60">
                 <span className="inline-flex items-center gap-1.5">
