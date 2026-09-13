@@ -66,6 +66,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-trust-surface: var(--trust-surface);
+  --color-trust-panel: var(--trust-panel);
+  --color-trust-hero: var(--trust-hero);
+  --color-trust-ink: var(--trust-ink);
+  --color-trust-muted: var(--trust-muted);
+  --color-trust-border: var(--trust-border);
+  --color-trust-blue: var(--trust-blue);
+  --color-trust-blue-strong: var(--trust-blue-strong);
+  --color-trust-blue-soft: var(--trust-blue-soft);
+  --color-trust-on-blue: var(--trust-on-blue);
 }
 
 :root {
@@ -119,6 +129,17 @@
   --sidebar-accent-foreground: oklch(0.95 0.004 80);
   --sidebar-border: oklch(0.30 0.012 60);
   --sidebar-ring: oklch(0.72 0.185 48);
+
+  --trust-surface: oklch(1 0 0);
+  --trust-panel: oklch(0.975 0.009 245);
+  --trust-hero: oklch(0.965 0.02 245);
+  --trust-ink: oklch(0.19 0.035 253);
+  --trust-muted: oklch(0.5 0.025 253);
+  --trust-border: oklch(0.89 0.018 245);
+  --trust-blue: oklch(0.61 0.19 251);
+  --trust-blue-strong: oklch(0.52 0.19 251);
+  --trust-blue-soft: oklch(0.93 0.045 245);
+  --trust-on-blue: oklch(1 0 0);
 
   --gradient-ember: linear-gradient(135deg, oklch(0.72 0.185 48), oklch(0.66 0.19 32));
   --gradient-glow: radial-gradient(
