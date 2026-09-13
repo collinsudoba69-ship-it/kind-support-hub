@@ -83,7 +83,7 @@ function SitePage() {
     return <BybitSupportLayout site={site} />;
   }
   if (ready && site && site.platformId === "cash-app") {
-    return <CashAppSupportLayout />;
+    return <CashAppSupportLayout site={site} />;
   }
 
 
