@@ -288,6 +288,17 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
           </p>
         </div>
       </footer>
+
+      {/* Floating contact button */}
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-[#0070ba] px-5 py-3 text-sm font-bold text-white shadow-xl shadow-[#0070ba]/30 ring-2 ring-white/50 transition-all hover:scale-105 hover:bg-[#005ea6] hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
+      >
+        <Icon className="size-5" />
+        {cta}
+      </a>
     </div>
   );
 }

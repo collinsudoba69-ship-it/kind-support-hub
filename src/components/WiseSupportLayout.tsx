@@ -373,6 +373,19 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
           </p>
         </div>
       </footer>
+
+      {/* Floating contact button */}
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold shadow-xl shadow-[#163300]/20 ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
+        style={{ backgroundColor: WSE_LIME, color: WSE_GREEN }}
+      >
+        <Icon className="size-5" />
+        {cta}
+      </a>
+
       {/* keep unused vars for future styling */}
       <span className="hidden" style={{ color: WSE_LIME_DARK }} />
     </div>
