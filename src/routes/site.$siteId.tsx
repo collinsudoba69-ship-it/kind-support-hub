@@ -61,6 +61,10 @@ function SitePage() {
   const method = site ? CONTACT_METHODS.find((m) => m.id === site.contactMethod) : undefined;
   const Icon = site ? METHOD_ICONS[site.contactMethod] : Mail;
 
+  if (ready && site && site.platformId === "paypal") {
+    return <PaypalSupportLayout site={site} />;
+  }
+
   return (
     <main className="relative min-h-screen">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-glow" aria-hidden />
