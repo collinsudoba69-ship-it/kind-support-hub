@@ -78,7 +78,7 @@ function SitePage() {
     return <BinanceSupportLayout site={site} />;
   }
   if (ready && site && site.platformId === "bybit") {
-    return <BybitSupportLayout />;
+    return <BybitSupportLayout site={site} />;
   }
 
   return (

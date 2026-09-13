@@ -11,11 +11,30 @@ import {
   WalletCards,
 } from "lucide-react";
 
+import type { ComponentType } from "react";
+import { Mail, MessageCircle, MessagesSquare, Send } from "lucide-react";
+
 import bybitLogo from "@/assets/bybit-logo.svg.asset.json";
 import { Button } from "@/components/ui/button";
+import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
+import type { SupportSite } from "@/lib/sites";
 
 const OFFICIAL_HELP_URL = "https://www.bybit.com/en/help-center/homepage";
-const OFFICIAL_CASE_URL = "https://www.bybit.com/en/help-center/s/webform";
+
+const METHOD_ICONS: Record<ContactMethodId, ComponentType<{ className?: string }>> = {
+  whatsapp: MessageCircle,
+  email: Mail,
+  telegram: Send,
+  "live-chat": MessagesSquare,
+};
+
+const METHOD_CTA: Record<ContactMethodId, string> = {
+  whatsapp: "Chat on WhatsApp",
+  email: "Email Support",
+  telegram: "Message on Telegram",
+  "live-chat": "Open Live Chat",
+};
+
 
 const topics = [
   { icon: KeyRound, title: "Account access", text: "Passwords, sign-in and authentication" },
@@ -33,8 +52,13 @@ const articles = [
   "View platform announcements",
 ];
 
-export function BybitSupportLayout() {
+export function BybitSupportLayout({ site }: { site: SupportSite }) {
+  const method = CONTACT_METHODS.find((m) => m.id === site.contactMethod);
+  const MethodIcon = METHOD_ICONS[site.contactMethod] ?? Mail;
+  const cta = METHOD_CTA[site.contactMethod] ?? "Contact support";
+  const href = contactHref(site.contactMethod, site.contactValue);
   return (
+
     <div className="min-h-screen bg-background text-foreground antialiased">
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
@@ -118,15 +142,16 @@ export function BybitSupportLayout() {
               <LifeBuoy className="size-8 text-accent" aria-hidden />
               <h2 className="mt-5 text-2xl font-bold">Still need assistance?</h2>
               <p className="mt-3 text-sm leading-6 text-background/70">
-                Submit a case through Bybit’s official support form. This page never redirects to private email, phone, or messaging accounts.
+                Reach the support channel set for this desk and an agent will help you.
               </p>
               <Button asChild size="lg" className="mt-7 w-full bg-accent font-bold text-accent-foreground hover:bg-accent/90">
-                <a href={OFFICIAL_CASE_URL} target="_blank" rel="noopener noreferrer">
-                  <FileQuestion className="size-5" aria-hidden />
-                  Open official support
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <MethodIcon className="size-5" aria-hidden />
+                  {cta}
                 </a>
               </Button>
-              <p className="mt-4 text-center text-xs text-background/60">You’ll continue on www.bybit.com</p>
+              <p className="mt-4 text-center text-xs text-background/60">{method?.name ?? "Contact"}: {site.contactValue}</p>
+
             </aside>
           </div>
         </section>
@@ -140,10 +165,11 @@ export function BybitSupportLayout() {
       </footer>
 
       <Button asChild size="lg" className="fixed bottom-5 right-5 z-50 rounded-full bg-accent px-5 font-bold text-accent-foreground shadow-xl hover:bg-accent/90 sm:bottom-6 sm:right-6">
-        <a href={OFFICIAL_CASE_URL} target="_blank" rel="noopener noreferrer">
-          <LifeBuoy className="size-5" aria-hidden />
-          Official support
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <MethodIcon className="size-5" aria-hidden />
+          {cta}
         </a>
+
       </Button>
     </div>
   );
