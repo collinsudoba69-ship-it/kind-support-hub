@@ -261,21 +261,16 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
               typically answered within minutes.
             </p>
           </div>
-          <div className="flex flex-col items-start gap-3 md:items-end">
-            <Button
-              asChild
-              size="xl"
-              className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-[#001c64] shadow-lg transition-all hover:bg-white/90"
-            >
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                <Icon className="size-5" />
-                {cta}
-              </a>
-            </Button>
+          <div className="flex flex-col items-start gap-2 md:items-end">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/50">
+              {method?.name} contact
+            </p>
+            <p className="break-all text-sm font-semibold text-white">{site.contactValue}</p>
             <p className="text-xs text-white/50">
-              Opens {method?.name} to continue the conversation
+              Use the button in the corner to start the conversation
             </p>
           </div>
+
         </div>
       </section>
 
