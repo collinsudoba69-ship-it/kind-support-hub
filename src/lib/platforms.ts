@@ -14,7 +14,7 @@ export const PLATFORMS: Platform[] = [
   { id: "bybit", name: "Bybit", mark: "By", tint: "oklch(0.78 0.17 75)" , domain: "bybit.com" },
   { id: "coinbase", name: "Coinbase", mark: "C", tint: "oklch(0.60 0.18 255)" , domain: "coinbase.com" },
   { id: "paypal", name: "PayPal", mark: "P", tint: "oklch(0.55 0.17 260)" , domain: "paypal.com" },
-  { id: "crypto-com", name: "Crypto.com", mark: "Cr", tint: "oklch(0.50 0.15 255)" , domain: "crypto.com" },
+  { id: "crypto-com", name: "Crypto", mark: "Cr", tint: "oklch(0.50 0.15 255)" , domain: "crypto.com" },
   { id: "cash-app", name: "Cash App", mark: "$", tint: "oklch(0.72 0.20 150)" , domain: "cash.app" },
   { id: "celebrity-management", name: "Celebrity Management", mark: "CM", tint: "oklch(0.70 0.16 330)"  },
   { id: "wise", name: "Wise", mark: "W", tint: "oklch(0.78 0.18 140)" , domain: "wise.com" },
