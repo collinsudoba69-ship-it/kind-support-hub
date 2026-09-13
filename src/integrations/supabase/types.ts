@@ -14,13 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      support_sites: {
+        Row: {
+          contact_method: string
+          contact_value: string
+          created_at: string
+          id: string
+          logo_url: string
+          note: string
+          platform_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          contact_method: string
+          contact_value: string
+          created_at?: string
+          id: string
+          logo_url?: string
+          note?: string
+          platform_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          contact_method?: string
+          contact_value?: string
+          created_at?: string
+          id?: string
+          logo_url?: string
+          note?: string
+          platform_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_site_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
