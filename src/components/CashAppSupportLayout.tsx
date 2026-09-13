@@ -69,7 +69,7 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
               Official support links
             </span>
           </div>
-          <Button asChild className="rounded-full px-5 font-bold text-black hover:opacity-90" style={{ backgroundColor: BRAND }}">
+          <Button asChild className="rounded-full px-5 font-bold text-black hover:opacity-90" style={{ backgroundColor: BRAND }}>
             <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
               Help Center
               <ArrowRight className="size-4" aria-hidden />
