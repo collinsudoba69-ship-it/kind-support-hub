@@ -86,6 +86,9 @@ function SitePage() {
   if (ready && site && site.platformId === "cash-app") {
     return <CashAppSupportLayout site={site} />;
   }
+  if (ready && site && site.platformId === "chime") {
+    return <ChmeSupportLayout site={site} />;
+  }
 
 
   return (
