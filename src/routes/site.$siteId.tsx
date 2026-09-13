@@ -11,6 +11,7 @@ import { BinanceSupportLayout } from "@/components/BinanceSupportLayout";
 import { BybitSupportLayout } from "@/components/BybitSupportLayout";
 import { CashAppSupportLayout } from "@/components/CashAppSupportLayout";
 import { ChmeSupportLayout } from "@/components/ChmeSupportLayout";
+import { CryptoSupportLayout } from "@/components/CryptoSupportLayout";
 
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";
@@ -88,6 +89,9 @@ function SitePage() {
   }
   if (ready && site && site.platformId === "chime") {
     return <ChmeSupportLayout site={site} />;
+  }
+  if (ready && site && site.platformId === "crypto-com") {
+    return <CryptoSupportLayout site={site} />;
   }
 
 
