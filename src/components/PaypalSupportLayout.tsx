@@ -91,17 +91,6 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button
-                  asChild
-                  size="xl"
-                  className="group h-12 rounded-full bg-[#0070ba] px-6 text-sm font-semibold text-white shadow-lg shadow-[#0070ba]/20 transition-all hover:bg-[#005ea6] hover:shadow-xl hover:shadow-[#0070ba]/30"
-                >
-                  <a href={href} target="_blank" rel="noopener noreferrer">
-                    <Icon className="size-5" />
-                    {cta}
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                </Button>
                 <a
                   href="#help"
                   className="inline-flex h-12 items-center justify-center rounded-full border border-[#001c64]/15 px-6 text-sm font-semibold text-[#001c64] transition-colors hover:border-[#001c64]/30 hover:bg-[#001c64]/5"
@@ -109,6 +98,7 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
                   How it works
                 </a>
               </div>
+
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#001c64]/60">
                 <span className="inline-flex items-center gap-1.5">
@@ -236,16 +226,6 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
             This channel is monitored by a verified specialist authorized to act on your account.
             No bots, no scripts — just direct resolution.
           </p>
-          <Button
-            asChild
-            size="xl"
-            className="mt-8 h-12 rounded-full bg-[#001c64] px-6 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#001846]"
-          >
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="size-5" />
-              {cta}
-            </a>
-          </Button>
         </div>
       </section>
 
@@ -261,21 +241,16 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
               typically answered within minutes.
             </p>
           </div>
-          <div className="flex flex-col items-start gap-3 md:items-end">
-            <Button
-              asChild
-              size="xl"
-              className="h-12 rounded-full bg-white px-6 text-sm font-semibold text-[#001c64] shadow-lg transition-all hover:bg-white/90"
-            >
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                <Icon className="size-5" />
-                {cta}
-              </a>
-            </Button>
+          <div className="flex flex-col items-start gap-2 md:items-end">
+            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/50">
+              {method?.name} contact
+            </p>
+            <p className="break-all text-sm font-semibold text-white">{site.contactValue}</p>
             <p className="text-xs text-white/50">
-              Opens {method?.name} to continue the conversation
+              Use the button in the corner to start the conversation
             </p>
           </div>
+
         </div>
       </section>
 

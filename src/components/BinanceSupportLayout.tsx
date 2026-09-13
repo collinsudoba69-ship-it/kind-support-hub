@@ -161,24 +161,14 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
             { icon: BadgeDollarSign, title: "Fees & limits", desc: "Understand transaction costs", count: "24 articles" },
             { icon: Users, title: "Account management", desc: "Profile, settings and security", count: "38 articles" },
             { icon: Lock, title: "Report an issue", desc: "Suspicious activity and disputes", count: "19 articles" },
-          ].map((c, i) => (
+          ].map((c) => (
             <a
               key={c.title}
-              href={i === 7 ? href : "#help"}
-              target={i === 7 ? "_blank" : undefined}
-              rel={i === 7 ? "noopener noreferrer" : undefined}
+              href="#contact"
               className="group relative block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
               style={{ border: "1px solid #E6E8EA" }}
             >
-              {i === 7 && (
-                <span
-                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded px-2.5 py-1 text-[10px] font-semibold shadow-sm"
-                  style={{ backgroundColor: BN_YELLOW, color: BN_BLACK }}
-                >
-                  <MessageCircle className="size-3" />
-                  {cta}
-                </span>
-              )}
+
               <div
                 className="flex size-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: BN_SOFT, color: BN_YELLOW_DARK }}
@@ -288,29 +278,11 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
           ))}
         </div>
 
-        <div id="contact" className="mt-10 text-center">
-          <p className="text-sm" style={{ color: BN_MUTED }}>
-            Still need help?
-          </p>
-          <Button
-            asChild
-            size="xl"
-            className="mt-3 h-11 rounded px-6 text-sm font-semibold shadow-sm transition-opacity hover:opacity-90"
-            style={{ backgroundColor: BN_YELLOW, color: BN_BLACK }}
-          >
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="size-4" />
-              {cta}
-            </a>
-          </Button>
-          <p className="mt-3 break-all text-xs" style={{ color: BN_MUTED }}>
-            {site.contactValue}
-          </p>
-        </div>
       </section>
 
       {/* Trust band */}
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <section id="contact" className="mx-auto max-w-6xl px-5 pb-16">
+
         <div
           className="overflow-hidden rounded-3xl p-10 text-center sm:p-14"
           style={{ backgroundColor: BN_BLACK, color: "#fff" }}
@@ -388,7 +360,7 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded px-5 py-3 text-sm font-bold shadow-xl ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold shadow-xl ring-2 ring-white/40 transition-all hover:scale-105 hover:shadow-2xl sm:bottom-6 sm:right-6 sm:px-6 sm:py-3.5 sm:text-base"
         style={{ backgroundColor: BN_YELLOW, color: BN_BLACK, boxShadow: `0 20px 40px -12px ${BN_YELLOW_DARK}66` }}
       >
         <Icon className="size-5" />

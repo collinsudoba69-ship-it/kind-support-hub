@@ -153,24 +153,14 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
             { icon: FileText, title: "Pricing & Fees", desc: "Understand our transparent fee structure", count: "28 articles" },
             { icon: Building2, title: "WSE Business", desc: "Multi-currency for your business", count: "39 articles" },
             { icon: Lock, title: "Security", desc: "How we keep your money safe", count: "25 articles" },
-          ].map((c, i) => (
+          ].map((c) => (
             <a
               key={c.title}
-              href={i === 3 ? href : "#help"}
-              target={i === 3 ? "_blank" : undefined}
-              rel={i === 3 ? "noopener noreferrer" : undefined}
+              href="#contact"
               className="group relative block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
               style={{ border: `1px solid ${WSE_GREEN}0f` }}
             >
-              {i === 3 && (
-                <span
-                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold shadow-sm"
-                  style={{ backgroundColor: WSE_LIME, color: WSE_GREEN }}
-                >
-                  <MessageCircle className="size-3" />
-                  {cta}
-                </span>
-              )}
+
               <div
                 className="flex size-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: `${WSE_LIME}55`, color: WSE_GREEN }}
@@ -278,29 +268,11 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
           ))}
         </div>
 
-        <div id="contact" className="mt-10 text-center">
-          <p className="text-sm" style={{ color: `${WSE_GREEN}99` }}>
-            Still need help?
-          </p>
-          <Button
-            asChild
-            size="xl"
-            className="mt-3 h-11 rounded-full px-6 text-sm font-semibold shadow-sm transition-opacity hover:opacity-90"
-            style={{ backgroundColor: WSE_LIME, color: WSE_GREEN }}
-          >
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="size-4" />
-              {cta}
-            </a>
-          </Button>
-          <p className="mt-3 break-all text-xs" style={{ color: `${WSE_GREEN}66` }}>
-            {site.contactValue}
-          </p>
-        </div>
       </section>
 
       {/* Exchange rate band */}
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <section id="contact" className="mx-auto max-w-6xl px-5 pb-16">
+
         <div
           className="overflow-hidden rounded-3xl p-10 text-center sm:p-14"
           style={{ backgroundColor: WSE_GREEN, color: WSE_CREAM }}
