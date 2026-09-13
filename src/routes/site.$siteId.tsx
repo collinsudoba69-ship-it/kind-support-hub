@@ -8,6 +8,7 @@ import { PaypalSupportLayout } from "@/components/PaypalSupportLayout";
 import { WiseSupportLayout } from "@/components/WiseSupportLayout";
 import { CoinbaseSupportLayout } from "@/components/CoinbaseSupportLayout";
 import { BinanceSupportLayout } from "@/components/BinanceSupportLayout";
+import { BybitSupportLayout } from "@/components/BybitSupportLayout";
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";
 
@@ -75,6 +76,9 @@ function SitePage() {
   }
   if (ready && site && site.platformId === "binance") {
     return <BinanceSupportLayout site={site} />;
+  }
+  if (ready && site && site.platformId === "bybit") {
+    return <BybitSupportLayout />;
   }
 
   return (
