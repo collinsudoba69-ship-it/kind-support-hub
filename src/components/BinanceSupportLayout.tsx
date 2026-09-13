@@ -161,24 +161,14 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
             { icon: BadgeDollarSign, title: "Fees & limits", desc: "Understand transaction costs", count: "24 articles" },
             { icon: Users, title: "Account management", desc: "Profile, settings and security", count: "38 articles" },
             { icon: Lock, title: "Report an issue", desc: "Suspicious activity and disputes", count: "19 articles" },
-          ].map((c, i) => (
+          ].map((c) => (
             <a
               key={c.title}
-              href={i === 7 ? href : "#help"}
-              target={i === 7 ? "_blank" : undefined}
-              rel={i === 7 ? "noopener noreferrer" : undefined}
+              href="#contact"
               className="group relative block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
               style={{ border: "1px solid #E6E8EA" }}
             >
-              {i === 7 && (
-                <span
-                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded px-2.5 py-1 text-[10px] font-semibold shadow-sm"
-                  style={{ backgroundColor: BN_YELLOW, color: BN_BLACK }}
-                >
-                  <MessageCircle className="size-3" />
-                  {cta}
-                </span>
-              )}
+
               <div
                 className="flex size-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: BN_SOFT, color: BN_YELLOW_DARK }}
