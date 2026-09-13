@@ -7,6 +7,7 @@ import { PlatformAvatar } from "@/components/PlatformAvatar";
 import { PaypalSupportLayout } from "@/components/PaypalSupportLayout";
 import { WiseSupportLayout } from "@/components/WiseSupportLayout";
 import { CoinbaseSupportLayout } from "@/components/CoinbaseSupportLayout";
+import { BinanceSupportLayout } from "@/components/BinanceSupportLayout";
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";
 
