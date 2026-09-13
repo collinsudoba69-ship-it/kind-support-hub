@@ -2,7 +2,6 @@ import {
   ArrowRight,
   BadgeCheck,
   BookOpen,
-  FileQuestion,
   KeyRound,
   LifeBuoy,
   LockKeyhole,
@@ -36,7 +35,6 @@ const METHOD_CTA: Record<ContactMethodId, string> = {
 const BRAND = "#00D632";
 
 const OFFICIAL_HELP_URL = "https://cash.app/help";
-const OFFICIAL_CONTACT_URL = "https://cash.app/contact";
 
 const topics = [
   { icon: KeyRound, title: "Account access", text: "Sign-in, PINs and account recovery" },
