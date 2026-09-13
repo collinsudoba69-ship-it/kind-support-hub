@@ -288,29 +288,11 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
           ))}
         </div>
 
-        <div id="contact" className="mt-10 text-center">
-          <p className="text-sm" style={{ color: BN_MUTED }}>
-            Still need help?
-          </p>
-          <Button
-            asChild
-            size="xl"
-            className="mt-3 h-11 rounded px-6 text-sm font-semibold shadow-sm transition-opacity hover:opacity-90"
-            style={{ backgroundColor: BN_YELLOW, color: BN_BLACK }}
-          >
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="size-4" />
-              {cta}
-            </a>
-          </Button>
-          <p className="mt-3 break-all text-xs" style={{ color: BN_MUTED }}>
-            {site.contactValue}
-          </p>
-        </div>
       </section>
 
       {/* Trust band */}
-      <section className="mx-auto max-w-6xl px-5 pb-16">
+      <section id="contact" className="mx-auto max-w-6xl px-5 pb-16">
+
         <div
           className="overflow-hidden rounded-3xl p-10 text-center sm:p-14"
           style={{ backgroundColor: BN_BLACK, color: "#fff" }}
