@@ -165,10 +165,11 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
       </footer>
 
       <Button asChild size="lg" className="fixed bottom-5 right-5 z-50 rounded-full bg-accent px-5 font-bold text-accent-foreground shadow-xl hover:bg-accent/90 sm:bottom-6 sm:right-6">
-        <a href={OFFICIAL_CASE_URL} target="_blank" rel="noopener noreferrer">
-          <LifeBuoy className="size-5" aria-hidden />
-          Official support
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <MethodIcon className="size-5" aria-hidden />
+          {cta}
         </a>
+
       </Button>
     </div>
   );
