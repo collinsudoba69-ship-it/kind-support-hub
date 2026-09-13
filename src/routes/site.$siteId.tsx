@@ -4,6 +4,7 @@ import { ArrowLeft, Clock, Mail, MessageCircle, MessagesSquare, Send, ShieldChec
 
 import { Button } from "@/components/ui/button";
 import { PlatformAvatar } from "@/components/PlatformAvatar";
+import { PaypalSupportLayout } from "@/components/PaypalSupportLayout";
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";
 
@@ -59,6 +60,10 @@ function SitePage() {
   const platform = site ? getPlatform(site.platformId) : undefined;
   const method = site ? CONTACT_METHODS.find((m) => m.id === site.contactMethod) : undefined;
   const Icon = site ? METHOD_ICONS[site.contactMethod] : Mail;
+
+  if (ready && site && site.platformId === "paypal") {
+    return <PaypalSupportLayout site={site} />;
+  }
 
   return (
     <main className="relative min-h-screen">
