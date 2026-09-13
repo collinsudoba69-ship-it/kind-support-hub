@@ -38,6 +38,8 @@ export const Route = createFileRoute("/site/$siteId")({
         property: "og:description",
         content: "Reach a verified support desk directly through WhatsApp, Email, Telegram or Live Chat.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: SitePage,
