@@ -49,9 +49,10 @@ type Draft = {
   platformId: string;
   contactMethod: ContactMethodId | "";
   contactValue: string;
+  logoUrl: string;
 };
 
-const EMPTY: Draft = { title: "", note: "", platformId: "", contactMethod: "", contactValue: "" };
+const EMPTY: Draft = { title: "", note: "", platformId: "", contactMethod: "", contactValue: "", logoUrl: "" };
 
 export function SupportWizard({
   open,
@@ -80,6 +81,7 @@ export function SupportWizard({
             platformId: editing.platformId,
             contactMethod: editing.contactMethod,
             contactValue: editing.contactValue,
+            logoUrl: editing.logoUrl ?? "",
           }
         : EMPTY,
     );
@@ -112,6 +114,7 @@ export function SupportWizard({
       platformId: draft.platformId,
       contactMethod: draft.contactMethod,
       contactValue: draft.contactValue,
+      logoUrl: draft.logoUrl,
       note: draft.note,
       createdAt: editing?.createdAt ?? Date.now(),
     });
@@ -178,18 +181,53 @@ export function SupportWizard({
                         onClick={() => setDraft({ ...draft, platformId: p.id })}
                         aria-pressed={active}
                         className={cn(
-                          "rounded-xl border px-4 py-3 text-sm font-medium transition-colors",
+                          "rounded-xl border px-3 py-2.5 text-left text-sm font-medium transition-colors",
                           active
                             ? "border-primary bg-primary/12 text-foreground"
                             : "border-border bg-surface text-foreground/90 hover:border-primary/50 hover:bg-surface-raised",
                         )}
                       >
-                        {p.name}
+                        <span className="flex items-center gap-2.5">
+                          <PlatformAvatar platform={p} className="size-8 text-xs" />
+                          <span className="truncate">{p.name}</span>
+                        </span>
                       </button>
                     );
                   })}
                 </div>
               </ScrollArea>
+
+              {platform && (
+                <div className="space-y-2 rounded-xl border border-border bg-surface p-3">
+                  <div className="flex items-center gap-3">
+                    <PlatformAvatar platform={platform} logoUrl={draft.logoUrl} className="size-10" />
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold">{platform.name} logo</p>
+                      <p className="text-xs text-muted-foreground">
+                        Added automatically. Paste an image link to use your own.
+                      </p>
+                    </div>
+                    {draft.logoUrl.trim() !== "" && (
+                      <Button
+                        type="button"
+                        variant="soft"
+                        size="sm"
+                        className="ml-auto"
+                        onClick={() => setDraft({ ...draft, logoUrl: "" })}
+                      >
+                        Reset
+                      </Button>
+                    )}
+                  </div>
+                  <Input
+                    id="logo-url"
+                    value={draft.logoUrl}
+                    maxLength={500}
+                    placeholder="https://example.com/logo.png (optional)"
+                    onChange={(e) => setDraft({ ...draft, logoUrl: e.target.value })}
+                  />
+                </div>
+              )}
             </div>
           )}
 
@@ -239,7 +277,7 @@ export function SupportWizard({
           {step === 3 && (
             <div className="space-y-3">
               <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-4">
-                {platform && <PlatformAvatar platform={platform} />}
+                {platform && <PlatformAvatar platform={platform} logoUrl={draft.logoUrl} />}
                 <div className="min-w-0">
                   <p className="truncate font-display text-lg font-semibold">{draft.title}</p>
                   <p className="truncate text-sm text-muted-foreground">{platform?.name}</p>

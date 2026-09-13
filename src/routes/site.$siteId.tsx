@@ -70,7 +70,7 @@ function SitePage() {
         ) : (
           <article className="mt-10">
             <div className="panel px-6 py-8 text-center">
-              {platform && <PlatformAvatar platform={platform} className="mx-auto size-16 text-xl" />}
+              {platform && <PlatformAvatar platform={platform} logoUrl={site?.logoUrl} className="mx-auto size-16 text-xl" />}
               <h1 className="mt-5 font-display text-2xl font-bold">{site.title}</h1>
               <p className="mt-1 text-sm text-muted-foreground">{platform?.name} support desk</p>
 

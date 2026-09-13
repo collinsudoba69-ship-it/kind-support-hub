@@ -7,6 +7,13 @@ export const siteSchema = z.object({
   platformId: z.string().min(1, "Pick a platform"),
   contactMethod: z.custom<ContactMethodId>((v) => typeof v === "string" && v.length > 0),
   contactValue: z.string().trim().min(1, "Add the contact details").max(200, "That contact detail is too long"),
+  logoUrl: z
+    .string()
+    .trim()
+    .max(500, "That logo link is too long")
+    .refine((v) => v === "" || /^https?:\/\//i.test(v) || v.startsWith("data:image/"), "Logo must be an image link starting with https://")
+    .optional()
+    .default(""),
   note: z.string().trim().max(300, "Keep the note under 300 characters").optional().default(""),
   createdAt: z.number(),
 });
