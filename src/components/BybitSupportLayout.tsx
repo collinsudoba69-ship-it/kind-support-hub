@@ -150,7 +150,7 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
                   {cta}
                 </a>
               </Button>
-              <p className="mt-4 text-center text-xs text-background/60">{method?.label ?? "Contact"}: {site.contactValue}</p>
+              <p className="mt-4 text-center text-xs text-background/60">{method?.name ?? "Contact"}: {site.contactValue}</p>
 
             </aside>
           </div>
