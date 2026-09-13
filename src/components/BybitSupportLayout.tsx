@@ -11,11 +11,30 @@ import {
   WalletCards,
 } from "lucide-react";
 
+import type { ComponentType } from "react";
+import { Mail, MessageCircle, MessagesSquare, Send } from "lucide-react";
+
 import bybitLogo from "@/assets/bybit-logo.svg.asset.json";
 import { Button } from "@/components/ui/button";
+import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
+import type { SupportSite } from "@/lib/sites";
 
 const OFFICIAL_HELP_URL = "https://www.bybit.com/en/help-center/homepage";
-const OFFICIAL_CASE_URL = "https://www.bybit.com/en/help-center/s/webform";
+
+const METHOD_ICONS: Record<ContactMethodId, ComponentType<{ className?: string }>> = {
+  whatsapp: MessageCircle,
+  email: Mail,
+  telegram: Send,
+  "live-chat": MessagesSquare,
+};
+
+const METHOD_CTA: Record<ContactMethodId, string> = {
+  whatsapp: "Chat on WhatsApp",
+  email: "Email Support",
+  telegram: "Message on Telegram",
+  "live-chat": "Open Live Chat",
+};
+
 
 const topics = [
   { icon: KeyRound, title: "Account access", text: "Passwords, sign-in and authentication" },
