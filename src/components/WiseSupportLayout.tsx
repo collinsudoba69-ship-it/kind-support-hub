@@ -153,24 +153,14 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
             { icon: FileText, title: "Pricing & Fees", desc: "Understand our transparent fee structure", count: "28 articles" },
             { icon: Building2, title: "WSE Business", desc: "Multi-currency for your business", count: "39 articles" },
             { icon: Lock, title: "Security", desc: "How we keep your money safe", count: "25 articles" },
-          ].map((c, i) => (
+          ].map((c) => (
             <a
               key={c.title}
-              href={i === 3 ? href : "#help"}
-              target={i === 3 ? "_blank" : undefined}
-              rel={i === 3 ? "noopener noreferrer" : undefined}
+              href="#contact"
               className="group relative block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
               style={{ border: `1px solid ${WSE_GREEN}0f` }}
             >
-              {i === 3 && (
-                <span
-                  className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold shadow-sm"
-                  style={{ backgroundColor: WSE_LIME, color: WSE_GREEN }}
-                >
-                  <MessageCircle className="size-3" />
-                  {cta}
-                </span>
-              )}
+
               <div
                 className="flex size-10 items-center justify-center rounded-xl"
                 style={{ backgroundColor: `${WSE_LIME}55`, color: WSE_GREEN }}
