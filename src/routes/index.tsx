@@ -121,7 +121,7 @@ function Index() {
                 return (
                   <li key={site.id} className="panel overflow-hidden">
                     <div className="flex items-center gap-3 px-5 pt-5">
-                      {platform && <PlatformAvatar platform={platform} />}
+                      {platform && <PlatformAvatar platform={platform} logoUrl={site.logoUrl} />}
                       <div className="min-w-0 flex-1">
                         <p className="truncate font-display text-lg font-semibold">{site.title}</p>
                         <p className="truncate text-sm text-muted-foreground">
