@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CONTACT_METHODS, contactHref } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
 const NAVY = "#0B1633";
@@ -25,8 +26,6 @@ const NAVY_SOFT = "#142450";
 const ACCENT = "#1199FA";
 const CREAM = "#F5F8FF";
 const MUTED = "#5B6784";
-
-const OFFICIAL_HELP_URL = "https://help.crypto.com/";
 
 const topics = [
   { icon: KeyRound, title: "Account access", text: "Sign-in issues, 2FA and password recovery" },
@@ -55,10 +54,11 @@ const faqs = [
   "How do I update my phone number?",
 ];
 
-const smallPrint =
-  "Independent support directory. This page is not affiliated with any exchange — every button opens the official help center at help.crypto.com.";
-
 export function CryptoSupportLayout({ site }: { site: SupportSite }) {
+  const method = CONTACT_METHODS.find((item) => item.id === site.contactMethod);
+  const supportHref = contactHref(site.contactMethod, site.contactValue);
+  const supportLabel = `${method?.name ?? "Email"} Support`;
+
   return (
     <div className="min-h-screen font-sans antialiased" style={{ backgroundColor: CREAM, color: NAVY }}>
       <header className="sticky top-0 z-30 border-b border-border/60 bg-white/90 backdrop-blur">
@@ -71,10 +71,10 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
               C
             </span>
             <span className="text-xl font-bold tracking-tight" style={{ color: NAVY }}>
-              Crypto
+              Crypto.corn
             </span>
             <span className="hidden text-sm font-medium sm:inline" style={{ color: MUTED }}>
-              Support Directory
+              Customer Support
             </span>
           </div>
           <Button
@@ -82,8 +82,8 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             className="rounded-full px-5 font-bold text-white hover:opacity-90"
             style={{ backgroundColor: ACCENT }}
           >
-            <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
-              Official Help
+            <a href={supportHref} target="_blank" rel="noopener noreferrer">
+              {supportLabel}
               <ArrowRight className="size-4" aria-hidden />
             </a>
           </Button>
@@ -97,13 +97,13 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             style={{ backgroundColor: `${ACCENT}15`, color: NAVY_SOFT }}
           >
             <ShieldCheck className="size-4" aria-hidden />
-            Official links only
+            Secure support
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-6xl" style={{ color: NAVY }}>
             How can we help you?
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Browse common topics, then continue to the official help center to reach a real support agent.
+            Browse common topics, then contact our support team for personal assistance.
           </p>
 
           <div className="mx-auto mt-8 flex max-w-2xl items-center gap-3 rounded-full border border-border bg-background p-2 pl-5 shadow-sm">
@@ -116,7 +116,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
               className="shrink-0 rounded-full px-5 font-bold text-white hover:opacity-90"
               style={{ backgroundColor: ACCENT }}
             >
-              <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">Search</a>
+              <a href={supportHref} target="_blank" rel="noopener noreferrer">Search</a>
             </Button>
           </div>
         </div>
@@ -134,7 +134,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
           </div>
           <a
             className="hidden items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-foreground sm:flex"
-            href={OFFICIAL_HELP_URL}
+            href={supportHref}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -145,7 +145,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
           {topics.map(({ icon: Icon, title, text }) => (
             <a
               key={title}
-              href={OFFICIAL_HELP_URL}
+              href={supportHref}
               target="_blank"
               rel="noopener noreferrer"
               className="group rounded-2xl border border-border bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -179,7 +179,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
               {articles.map((article) => (
                 <a
                   key={article}
-                  href={OFFICIAL_HELP_URL}
+                  href={supportHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between gap-4 rounded-xl border border-border bg-background px-4 py-4 text-sm font-semibold transition-colors hover:border-[#1199FA]"
@@ -198,8 +198,8 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             <LifeBuoy className="size-8" aria-hidden />
             <h2 className="mt-5 text-2xl font-bold">Still need help?</h2>
             <p className="mt-3 text-sm leading-6 text-white/75">
-              Support for this platform is handled only on the official help center. Never share passwords or
-              recovery phrases with anyone.
+               Contact our support team using the method selected by the administrator. Never share passwords or
+               recovery phrases with anyone.
             </p>
             <Button
               asChild
@@ -207,12 +207,12 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
               className="mt-7 w-full rounded-full font-bold text-white hover:opacity-90"
               style={{ backgroundColor: ACCENT }}
             >
-              <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={supportHref} target="_blank" rel="noopener noreferrer">
                 <ShieldCheck className="size-5" aria-hidden />
-                Go to official support
+                {supportLabel}
               </a>
             </Button>
-            <p className="mt-4 text-center text-xs text-white/60">help.crypto.com</p>
+            <p className="mt-4 break-all text-center text-xs text-white/60">{site.contactValue}</p>
           </aside>
         </div>
       </section>
@@ -235,7 +235,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
                 <ChevronDown className="size-4 text-muted-foreground transition-transform group-open:rotate-180" aria-hidden />
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {site.note?.trim() || "Open the official help center for a verified answer from a support agent."}
+                 {site.note?.trim() || "Contact our support team for help with this question."}
               </p>
             </details>
           ))}
@@ -252,7 +252,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             Talk to a real support specialist
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Agents are reachable only through the official help center. Anyone contacting you elsewhere is not support.
+             Reach our team through the support channel configured for this page.
           </p>
           <Button
             asChild
@@ -260,9 +260,9 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             className="mt-6 rounded-full px-6 font-bold text-white hover:opacity-90"
             style={{ backgroundColor: ACCENT }}
           >
-            <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={supportHref} target="_blank" rel="noopener noreferrer">
               <ShieldCheck className="size-5" aria-hidden />
-              Go to official support
+              {supportLabel}
             </a>
           </Button>
         </div>
@@ -277,11 +277,11 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
             >
               C
             </span>
-            <span className="font-semibold" style={{ color: NAVY }}>Crypto</span>
+             <span className="font-semibold" style={{ color: NAVY }}>Crypto.corn</span>
           </div>
           <p className="inline-flex max-w-xl items-center gap-1.5">
             <Clock className="size-3.5 shrink-0" aria-hidden />
-            {smallPrint}
+             Crypto.corn customer support. Never share your password or recovery phrase.
           </p>
         </div>
       </footer>
@@ -292,9 +292,9 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
         className="fixed bottom-5 right-5 z-50 rounded-full px-5 font-bold text-white shadow-xl hover:opacity-90 sm:bottom-6 sm:right-6"
         style={{ backgroundColor: ACCENT }}
       >
-        <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
+         <a href={supportHref} target="_blank" rel="noopener noreferrer">
           <Smartphone className="size-5" aria-hidden />
-          Official support
+           {supportLabel}
         </a>
       </Button>
     </div>
