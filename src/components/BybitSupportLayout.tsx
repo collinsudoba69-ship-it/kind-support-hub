@@ -70,7 +70,7 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
               Official support links
             </span>
           </div>
-          <Button asChild className="rounded-full px-5 font-bold text-black hover:opacity-90" style={{ backgroundColor: BRAND }}">
+          <Button asChild className="rounded-full px-5 font-bold text-black hover:opacity-90" style={{ backgroundColor: BRAND }}>
             <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
               Help Center
               <ArrowRight className="size-4" aria-hidden />
@@ -166,7 +166,7 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
         </div>
       </footer>
 
-      <Button asChild size="lg" className="fixed bottom-5 right-5 z-50 rounded-full bg-accent px-5 font-bold text-[#F7A600]-foreground shadow-xl hover:bg-accent/90 sm:bottom-6 sm:right-6">
+      <Button asChild size="lg" className="fixed bottom-5 right-5 z-50 rounded-full px-5 font-bold text-black shadow-xl hover:opacity-90 sm:bottom-6 sm:right-6" style={{ backgroundColor: BRAND }}>
         <a href={href} target="_blank" rel="noopener noreferrer">
           <MethodIcon className="size-5" aria-hidden />
           {cta}
