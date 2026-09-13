@@ -236,16 +236,6 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
             This channel is monitored by a verified specialist authorized to act on your account.
             No bots, no scripts — just direct resolution.
           </p>
-          <Button
-            asChild
-            size="xl"
-            className="mt-8 h-12 rounded-full bg-[#001c64] px-6 text-sm font-semibold text-white shadow-lg transition-all hover:bg-[#001846]"
-          >
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon className="size-5" />
-              {cta}
-            </a>
-          </Button>
         </div>
       </section>
 
