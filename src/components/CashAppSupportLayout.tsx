@@ -165,16 +165,22 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
               <LifeBuoy className="size-8 text-[#00D632]" aria-hidden />
               <h2 className="mt-5 text-2xl font-bold">Still need assistance?</h2>
               <p className="mt-3 text-sm leading-6 text-background/70">
-                Contact Cash App through its official support channels. This page never redirects to private email,
-                phone, or messaging accounts.
+                Reach the support channel set up for this page and we will get back to you.
               </p>
-              <Button asChild size="lg" className="mt-7 w-full bg-accent font-bold text-[#00D632]-foreground hover:bg-accent/90">
-                <a href={OFFICIAL_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                  <FileQuestion className="size-5" aria-hidden />
-                  Open official support
+              <Button
+                asChild
+                size="lg"
+                className="mt-7 w-full font-bold text-black hover:opacity-90"
+                style={{ backgroundColor: BRAND }}
+              >
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <MethodIcon className="size-5" aria-hidden />
+                  {cta}
                 </a>
               </Button>
-              <p className="mt-4 text-center text-xs text-background/60">You’ll continue on cash.app</p>
+              <p className="mt-4 text-center text-xs text-background/60">
+                {method?.name ?? "Support"}: {site.contactValue}
+              </p>
             </aside>
           </div>
         </section>
