@@ -82,6 +82,10 @@ function SitePage() {
   if (ready && site && site.platformId === "bybit") {
     return <BybitSupportLayout site={site} />;
   }
+  if (ready && site && site.platformId === "cash-app") {
+    return <CashAppSupportLayout />;
+  }
+
 
   return (
     <main className="relative min-h-screen">
