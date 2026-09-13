@@ -1,5 +1,8 @@
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 import type { ContactMethodId } from "./platforms";
+
+export const ADMIN_EMAIL = "mt2970446@gmail.com";
 
 export const siteSchema = z.object({
   id: z.string(),
@@ -20,23 +23,66 @@ export const siteSchema = z.object({
 
 export type SupportSite = z.infer<typeof siteSchema>;
 
-const STORAGE_KEY = "support-sites:v1";
+type Row = {
+  id: string;
+  title: string;
+  platform_id: string;
+  contact_method: string;
+  contact_value: string;
+  logo_url: string | null;
+  note: string | null;
+  created_at: string;
+};
 
-export function loadSites(): SupportSite[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = z.array(siteSchema).safeParse(JSON.parse(raw));
-    return parsed.success ? parsed.data : [];
-  } catch {
-    return [];
-  }
+function toSite(row: Row): SupportSite {
+  return {
+    id: row.id,
+    title: row.title,
+    platformId: row.platform_id,
+    contactMethod: row.contact_method as ContactMethodId,
+    contactValue: row.contact_value,
+    logoUrl: row.logo_url ?? "",
+    note: row.note ?? "",
+    createdAt: new Date(row.created_at).getTime(),
+  };
 }
 
-export function saveSites(sites: SupportSite[]) {
-  if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(sites));
+function toRow(site: SupportSite) {
+  return {
+    id: site.id,
+    title: site.title,
+    platform_id: site.platformId,
+    contact_method: site.contactMethod,
+    contact_value: site.contactValue,
+    logo_url: site.logoUrl ?? "",
+    note: site.note ?? "",
+    created_at: new Date(site.createdAt).toISOString(),
+  };
+}
+
+export async function fetchSites(): Promise<SupportSite[]> {
+  const { data, error } = await supabase
+    .from("support_sites")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return (data as Row[]).map(toSite);
+}
+
+export async function fetchSite(id: string): Promise<SupportSite | null> {
+  const { data, error } = await supabase.from("support_sites").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return data ? toSite(data as Row) : null;
+}
+
+export async function upsertSite(site: SupportSite): Promise<void> {
+  const { error } = await supabase.from("support_sites").upsert(toRow(site));
+  if (error) throw error;
+}
+
+export async function deleteSite(id: string): Promise<void> {
+  const { error } = await supabase.from("support_sites").delete().eq("id", id);
+  if (error) throw error;
 }
 
 export function newId() {
