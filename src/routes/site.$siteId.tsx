@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Mail, MessageCircle, MessagesSquare, Send, ShieldChec
 import { Button } from "@/components/ui/button";
 import { PlatformAvatar } from "@/components/PlatformAvatar";
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
-import { loadSites, type SupportSite } from "@/lib/sites";
+import { fetchSite, type SupportSite } from "@/lib/sites";
 
 const METHOD_ICONS: Record<ContactMethodId, typeof Mail> = {
   whatsapp: MessageCircle,
@@ -39,8 +39,21 @@ function SitePage() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setSite(loadSites().find((s) => s.id === siteId) ?? null);
-    setReady(true);
+    let active = true;
+    setReady(false);
+    fetchSite(siteId)
+      .then((found) => {
+        if (active) setSite(found);
+      })
+      .catch(() => {
+        if (active) setSite(null);
+      })
+      .finally(() => {
+        if (active) setReady(true);
+      });
+    return () => {
+      active = false;
+    };
   }, [siteId]);
 
   const platform = site ? getPlatform(site.platformId) : undefined;
@@ -64,7 +77,7 @@ function SitePage() {
           <div className="panel mt-10 px-6 py-14 text-center">
             <h1 className="font-display text-2xl font-bold">Support site not found</h1>
             <p className="mt-2 text-sm text-muted-foreground">
-              This link may have expired or was created on another device.
+              This link may have expired or been removed.
             </p>
           </div>
         ) : (
