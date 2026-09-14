@@ -316,9 +316,9 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
         className="fixed bottom-5 right-5 z-50 rounded-full px-5 font-bold text-white shadow-xl hover:opacity-90 sm:bottom-6 sm:right-6"
         style={{ backgroundColor: BRAND }}
       >
-        <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
-          <ExternalLink className="size-5" aria-hidden />
-          Official support
+        <a href={supportHref} target="_blank" rel="noopener noreferrer">
+          <SupportIcon className="size-5" aria-hidden />
+          Contact {method?.name ?? "Support"}
         </a>
       </Button>
     </div>
