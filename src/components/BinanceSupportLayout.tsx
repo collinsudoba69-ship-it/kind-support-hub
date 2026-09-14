@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -61,12 +62,7 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
-              <span
-                className="flex size-7 items-center justify-center rounded text-xs font-black"
-                style={{ backgroundColor: BN_YELLOW, color: BN_BLACK }}
-              >
-                B
-              </span>
+              <SiteLogo site={site} className="size-8 rounded border-0" />
               <span className="text-lg font-bold tracking-tight" style={{ color: BN_BLACK }}>
                 Binance
               </span>

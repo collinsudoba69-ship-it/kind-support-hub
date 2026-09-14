@@ -57,7 +57,7 @@ export function TrustWalletSupportLayout({ site }: { site?: SupportSite }) {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
           <div className="flex min-w-0 items-center gap-3">
             {platform ? (
-              <PlatformAvatar platform={platform} className="size-10 border-trust-border bg-trust-surface" />
+              <PlatformAvatar platform={platform} logoUrl={site?.logoUrl} className="size-10 border-trust-border bg-trust-surface" />
             ) : null}
             <div className="min-w-0">
               <p className="truncate text-lg font-extrabold">Trust</p>
@@ -175,7 +175,7 @@ export function TrustWalletSupportLayout({ site }: { site?: SupportSite }) {
       <footer className="border-t border-trust-border bg-trust-panel px-5 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-xs text-trust-muted sm:flex-row sm:text-left">
           <div className="flex items-center gap-2">
-            {platform ? <PlatformAvatar platform={platform} className="size-7 border-trust-border bg-trust-surface" /> : null}
+            {platform ? <PlatformAvatar platform={platform} logoUrl={site?.logoUrl} className="size-7 border-trust-border bg-trust-surface" /> : null}
             <span className="font-bold text-trust-ink">Trust Help Center</span>
           </div>
           <p className="inline-flex items-center gap-1.5">

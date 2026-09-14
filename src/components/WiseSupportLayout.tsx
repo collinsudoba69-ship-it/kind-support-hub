@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -61,12 +62,7 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
-              <span
-                className="flex size-7 items-center justify-center rounded-md"
-                style={{ backgroundColor: WSE_LIME, color: WSE_GREEN }}
-              >
-                <Zap className="size-4" strokeWidth={3} />
-              </span>
+              <SiteLogo site={site} className="size-8 rounded-md border-0" />
               <span className="text-lg font-bold tracking-tight">WSE</span>
               <span className="hidden text-sm font-medium sm:inline" style={{ color: `${WSE_GREEN}99` }}>
                 Help Centre

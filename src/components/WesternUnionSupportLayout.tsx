@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -76,12 +77,7 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
       <header className="sticky top-0 z-30 border-b border-border/60 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
           <div className="flex items-center gap-3">
-            <span
-              className="flex size-8 items-center justify-center rounded-full text-sm font-black text-white"
-              style={{ backgroundColor: BRAND }}
-            >
-              T
-            </span>
+            <SiteLogo site={site} className="size-9 border-0" />
             <span className="text-xl font-bold tracking-tight" style={{ color: INK }}>
               Transfer Help Guide
             </span>

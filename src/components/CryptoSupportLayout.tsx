@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -64,12 +65,7 @@ export function CryptoSupportLayout({ site }: { site: SupportSite }) {
       <header className="sticky top-0 z-30 border-b border-border/60 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
           <div className="flex items-center gap-3">
-            <span
-              className="flex size-8 items-center justify-center rounded-lg text-sm font-black text-white"
-              style={{ backgroundColor: NAVY }}
-            >
-              C
-            </span>
+            <SiteLogo site={site} className="size-9 rounded-lg border-0" />
             <span className="text-xl font-bold tracking-tight" style={{ color: NAVY }}>
               Crypto.corn
             </span>

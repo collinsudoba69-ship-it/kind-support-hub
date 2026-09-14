@@ -13,8 +13,8 @@ import {
 import type { ComponentType } from "react";
 import { Mail, MessageCircle, MessagesSquare, Send } from "lucide-react";
 
-import cashAppLogo from "@/assets/cashapp-logo.svg.asset.json";
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -62,7 +62,7 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
           <div className="flex min-w-0 items-center gap-3">
-            <img src={cashAppLogo.url} alt="Cash App" className="size-8 shrink-0 rounded-lg object-contain" />
+            <SiteLogo site={site} className="size-9 rounded-lg border-0" />
             <span className="hidden border-l border-border pl-3 text-sm font-medium text-muted-foreground sm:inline">
               Official support links
             </span>

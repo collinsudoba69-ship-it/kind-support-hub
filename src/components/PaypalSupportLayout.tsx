@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
@@ -47,10 +48,13 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
       <header className="sticky top-0 z-30 border-b border-[#e6e9ef] bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
           <div className="flex items-center gap-8">
-            <span className="text-xl font-bold tracking-tight">
-              <span className="text-[#001c64]">Pay</span>
-              <span className="text-[#0070ba]">Pal</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <SiteLogo site={site} className="size-9 border-0" />
+              <span className="text-xl font-bold tracking-tight">
+                <span className="text-[#001c64]">Pay</span>
+                <span className="text-[#0070ba]">Pal</span>
+              </span>
+            </div>
             <nav className="hidden gap-6 text-sm font-medium text-[#001c64]/80 md:flex">
               <a href="#personal" className="transition-colors hover:text-[#0070ba]">Personal</a>
               <a href="#business" className="transition-colors hover:text-[#0070ba]">Business</a>
