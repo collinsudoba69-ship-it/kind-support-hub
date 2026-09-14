@@ -45,10 +45,10 @@ const faqs = [
   "How can I keep my wallet secure?",
 ];
 
-export function TrustWalletSupportLayout({ site }: { site: SupportSite }) {
+export function TrustWalletSupportLayout({ site }: { site?: SupportSite }) {
   const platform = getPlatform("trust-wallet");
-  const method = CONTACT_METHODS.find((item) => item.id === site.contactMethod);
-  const supportHref = contactHref(site.contactMethod, site.contactValue);
+  const method = site ? CONTACT_METHODS.find((item) => item.id === site.contactMethod) : undefined;
+  const supportHref = site ? contactHref(site.contactMethod, site.contactValue) : "#";
   const supportLabel = `${method?.name ?? "Email"} Support`;
 
   return (
