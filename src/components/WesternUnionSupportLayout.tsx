@@ -109,7 +109,7 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
             style={{ backgroundColor: `${BRAND}15`, color: BRAND_DARK }}
           >
             <ShieldCheck className="size-4" aria-hidden />
-            Independent guide — links go to westernunion.com
+            Independent guide — support contact set by the admin
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-6xl" style={{ color: INK }}>
             {site?.title?.trim() || "Help with your money transfer"}
