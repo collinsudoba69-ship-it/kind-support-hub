@@ -79,7 +79,7 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
           <div className="flex items-center gap-3">
             <SiteLogo site={site} className="size-9 border-0" />
             <span className="text-xl font-bold tracking-tight" style={{ color: INK }}>
-              Transfer Help Guide
+              {site?.title?.trim() || "Transfer Help Guide"}
             </span>
             <span className="hidden text-sm font-medium sm:inline" style={{ color: MUTED }}>
               Money transfer answers

@@ -64,7 +64,7 @@ export function BinanceSupportLayout({ site }: { site: SupportSite }) {
             <div className="flex items-center gap-2">
               <SiteLogo site={site} className="size-8 rounded border-0" />
               <span className="text-lg font-bold tracking-tight" style={{ color: BN_BLACK }}>
-                Binance
+                {site.title}
               </span>
               <span className="hidden text-sm font-medium sm:inline" style={{ color: BN_MUTED }}>
                 Support Center

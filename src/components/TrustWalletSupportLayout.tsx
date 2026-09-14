@@ -64,7 +64,7 @@ export function TrustWalletSupportLayout({ site }: { site?: SupportSite }) {
               )
             ) : null}
             <div className="min-w-0">
-              <p className="truncate text-lg font-extrabold">Trust</p>
+              <p className="truncate text-lg font-extrabold">{site?.title?.trim() || "Trust"}</p>
               <p className="truncate text-xs text-trust-muted">Help Center</p>
             </div>
           </div>

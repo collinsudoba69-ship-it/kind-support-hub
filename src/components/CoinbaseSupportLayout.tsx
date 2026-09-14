@@ -64,7 +64,7 @@ export function CoinbaseSupportLayout({ site }: { site: SupportSite }) {
             <div className="flex items-center gap-2">
               <SiteLogo site={site} className="size-8 border-0" />
               <span className="text-lg font-bold tracking-tight" style={{ color: CB_NAVY }}>
-                Coinbase
+                {site.title}
               </span>
               <span className="hidden text-sm font-medium sm:inline" style={{ color: CB_MUTED }}>
                 Help Center

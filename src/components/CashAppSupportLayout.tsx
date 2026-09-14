@@ -63,6 +63,7 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-5 px-5 py-4">
           <div className="flex min-w-0 items-center gap-3">
             <SiteLogo site={site} className="size-9 rounded-lg border-0" />
+            <span className="text-lg font-bold tracking-tight">{site.title}</span>
             <span className="hidden border-l border-border pl-3 text-sm font-medium text-muted-foreground sm:inline">
               Official support links
             </span>
@@ -83,7 +84,7 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
               <ShieldCheck className="size-4 text-[#00D632]" aria-hidden />
               Links verified for cash.app
             </div>
-            <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-6xl">Cash App support resources</h1>
+            <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-6xl">{site.title}</h1>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
               Find answers and continue securely to Cash App’s official help centre for account assistance.
             </p>

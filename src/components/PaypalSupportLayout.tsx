@@ -50,10 +50,7 @@ export function PaypalSupportLayout({ site }: { site: SupportSite }) {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
               <SiteLogo site={site} className="size-9 border-0" />
-              <span className="text-xl font-bold tracking-tight">
-                <span className="text-[#001c64]">Pay</span>
-                <span className="text-[#0070ba]">Pal</span>
-              </span>
+              <span className="text-xl font-bold tracking-tight text-[#001c64]">{site.title}</span>
             </div>
             <nav className="hidden gap-6 text-sm font-medium text-[#001c64]/80 md:flex">
               <a href="#personal" className="transition-colors hover:text-[#0070ba]">Personal</a>

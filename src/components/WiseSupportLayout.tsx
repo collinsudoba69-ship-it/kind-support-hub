@@ -63,7 +63,7 @@ export function WiseSupportLayout({ site }: { site: SupportSite }) {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
               <SiteLogo site={site} className="size-8 rounded-md border-0" />
-              <span className="text-lg font-bold tracking-tight">WSE</span>
+              <span className="text-lg font-bold tracking-tight">{site.title}</span>
               <span className="hidden text-sm font-medium sm:inline" style={{ color: `${WSE_GREEN}99` }}>
                 Help Centre
               </span>
