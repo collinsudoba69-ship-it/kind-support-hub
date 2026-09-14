@@ -271,11 +271,10 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
         >
           <Users className="mx-auto size-8" style={{ color: BRAND }} aria-hidden />
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl" style={{ color: INK }}>
-            Talk to Western Union directly
+            Get support now
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            This guide is independent. For anything touching your money or your account, use the official
-            channels.
+            Need account-specific help? Contact the support channel configured for this guide.
           </p>
           <Button
             asChild
@@ -283,9 +282,9 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
             className="mt-6 rounded-full px-6 font-bold text-white hover:opacity-90"
             style={{ backgroundColor: BRAND }}
           >
-            <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="size-5" aria-hidden />
-              Official support
+            <a href={supportHref} target="_blank" rel="noopener noreferrer">
+              <SupportIcon className="size-5" aria-hidden />
+              Contact {method?.name ?? "Support"}
             </a>
           </Button>
         </div>
