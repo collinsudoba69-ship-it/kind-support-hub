@@ -100,6 +100,9 @@ function SitePage() {
   if (ready && site && site.platformId === "trust-wallet") {
     return <TrustWalletSupportLayout site={site} />;
   }
+  if (ready && site && site.platformId === "western-union") {
+    return <WesternUnionSupportLayout site={site} />;
+  }
 
 
   return (
