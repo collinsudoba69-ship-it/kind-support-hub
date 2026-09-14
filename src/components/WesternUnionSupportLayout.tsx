@@ -217,7 +217,7 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
             <LifeBuoy className="size-8" aria-hidden />
             <h2 className="mt-5 text-2xl font-bold">Still need help?</h2>
             <p className="mt-3 text-sm leading-6 text-white/80">
-              Account and transfer questions are handled by Western Union's own support team.
+              Reach the configured support channel for this guide.
             </p>
             <Button
               asChild
@@ -225,12 +225,12 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
               className="mt-7 w-full rounded-full font-bold hover:opacity-90"
               style={{ backgroundColor: "#fff", color: BRAND }}
             >
-              <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="size-5" aria-hidden />
-                Go to official support
+              <a href={supportHref} target="_blank" rel="noopener noreferrer">
+                <SupportIcon className="size-5" aria-hidden />
+                Contact {method?.name ?? "Support"}
               </a>
             </Button>
-            <p className="mt-4 text-center text-xs text-white/70">Opens westernunion.com</p>
+            <p className="mt-4 text-center text-xs text-white/70">Set from the admin panel</p>
           </aside>
         </div>
       </section>
