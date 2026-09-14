@@ -10,6 +10,9 @@ import {
   KeyRound,
   LifeBuoy,
   LockKeyhole,
+  Mail,
+  MessageCircle,
+  MessagesSquare,
   Search,
   Send,
   ShieldCheck,
@@ -17,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CONTACT_METHODS, contactHref, type ContactMethodId } from "@/lib/platforms";
 import type { SupportSite } from "@/lib/sites";
 
 const BRAND = "#2F5D8C";
@@ -25,8 +29,15 @@ const CREAM = "#F6F8FB";
 const INK = "#16202B";
 const MUTED = "#5A6B7C";
 
-/** Every support action on this page opens the genuine Western Union help centre. */
+/** Informational links still point to the genuine Western Union help centre. */
 const OFFICIAL_HELP_URL = "https://www.westernunion.com/us/en/help.html";
+
+const METHOD_ICONS: Record<ContactMethodId, typeof Mail> = {
+  whatsapp: MessageCircle,
+  email: Mail,
+  telegram: Send,
+  "live-chat": MessagesSquare,
+};
 
 const topics = [
   { icon: Send, title: "Send a transfer", text: "Start a transfer and choose how your receiver is paid" },
