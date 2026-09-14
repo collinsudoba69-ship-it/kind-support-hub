@@ -57,11 +57,11 @@ export function TrustWalletSupportLayout({ site }: { site?: SupportSite }) {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
           <div className="flex min-w-0 items-center gap-3">
             {platform ? (
-              {site ? (
+              site ? (
                 <PlatformAvatar platform={platform} logoUrl={site.logoUrl} className="size-10 border-trust-border bg-trust-surface" />
               ) : (
                 <PlatformAvatar platform={platform} className="size-10 border-trust-border bg-trust-surface" />
-              )}
+              )
             ) : null}
             <div className="min-w-0">
               <p className="truncate text-lg font-extrabold">Trust</p>
