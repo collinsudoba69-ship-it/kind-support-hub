@@ -67,6 +67,10 @@ const faqs = [
 ];
 
 export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
+  const method = site ? CONTACT_METHODS.find((m) => m.id === site.contactMethod) : undefined;
+  const supportHref = site ? contactHref(site.contactMethod, site.contactValue) : "#";
+  const SupportIcon = site ? METHOD_ICONS[site.contactMethod] : Mail;
+
   return (
     <div className="min-h-screen font-sans antialiased" style={{ backgroundColor: CREAM, color: INK }}>
       <header className="sticky top-0 z-30 border-b border-border/60 bg-white/90 backdrop-blur">
@@ -90,9 +94,9 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
             className="rounded-full px-5 font-bold text-white hover:opacity-90"
             style={{ backgroundColor: BRAND }}
           >
-            <a href={OFFICIAL_HELP_URL} target="_blank" rel="noopener noreferrer">
-              Official Help
-              <ExternalLink className="size-4" aria-hidden />
+            <a href={supportHref} target="_blank" rel="noopener noreferrer">
+              <SupportIcon className="size-4" aria-hidden />
+              Contact {method?.name ?? "Support"}
             </a>
           </Button>
         </div>
