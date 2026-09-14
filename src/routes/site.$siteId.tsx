@@ -97,7 +97,7 @@ function SitePage() {
     return <CryptoSupportLayout site={site} />;
   }
   if (ready && site && site.platformId === "trust-wallet") {
-    return <TrustWalletSupportLayout />;
+    return <TrustWalletSupportLayout site={site} />;
   }
 
 

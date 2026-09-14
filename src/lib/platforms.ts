@@ -20,7 +20,7 @@ export const PLATFORMS: Platform[] = [
   { id: "wise", name: "Wise", mark: "W", tint: "oklch(0.78 0.18 140)" , domain: "wise.com" },
   { id: "zelle", name: "Zelle", mark: "Z", tint: "oklch(0.58 0.22 300)" , domain: "zellepay.com" },
   { id: "venmo", name: "Venmo", mark: "V", tint: "oklch(0.65 0.16 240)" , domain: "venmo.com" },
-  { id: "trust-wallet", name: "Trust Wallet", mark: "TW", tint: "oklch(0.62 0.17 250)" , domain: "trustwallet.com" },
+  { id: "trust-wallet", name: "Trust", mark: "T", tint: "oklch(0.62 0.17 250)" },
   { id: "coinbase-wallet", name: "Coinbase Wallet", mark: "CW", tint: "oklch(0.62 0.17 258)" , domain: "coinbase.com" },
   { id: "kraken", name: "Kraken", mark: "K", tint: "oklch(0.60 0.16 285)" , domain: "kraken.com" },
   { id: "kucoin", name: "KuCoin", mark: "KC", tint: "oklch(0.72 0.15 180)" , domain: "kucoin.com" },

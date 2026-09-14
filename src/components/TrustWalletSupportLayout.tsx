@@ -16,9 +16,8 @@ import {
 
 import { PlatformAvatar } from "@/components/PlatformAvatar";
 import { Button } from "@/components/ui/button";
-import { getPlatform } from "@/lib/platforms";
-
-const OFFICIAL_SUPPORT_URL = "https://support.trustwallet.com/";
+import { CONTACT_METHODS, contactHref, getPlatform } from "@/lib/platforms";
+import type { SupportSite } from "@/lib/sites";
 
 const topics = [
   { icon: WalletCards, title: "Wallet basics", text: "Create, import and manage your wallet safely" },
@@ -39,15 +38,18 @@ const articles = [
 ];
 
 const faqs = [
-  "How do I contact Trust Wallet support?",
-  "Can Trust Wallet recover my recovery phrase?",
+  "How do I contact Trust support?",
+  "Can Trust recover my recovery phrase?",
   "Why is my transaction still pending?",
   "How do I add a custom token?",
   "How can I keep my wallet secure?",
 ];
 
-export function TrustWalletSupportLayout() {
+export function TrustWalletSupportLayout({ site }: { site: SupportSite }) {
   const platform = getPlatform("trust-wallet");
+  const method = CONTACT_METHODS.find((item) => item.id === site.contactMethod);
+  const supportHref = contactHref(site.contactMethod, site.contactValue);
+  const supportLabel = `${method?.name ?? "Email"} Support`;
 
   return (
     <div className="min-h-screen bg-trust-surface font-sans text-trust-ink antialiased">
@@ -58,13 +60,13 @@ export function TrustWalletSupportLayout() {
               <PlatformAvatar platform={platform} className="size-10 border-trust-border bg-trust-surface" />
             ) : null}
             <div className="min-w-0">
-              <p className="truncate text-lg font-extrabold">Trust Wallet</p>
+              <p className="truncate text-lg font-extrabold">Trust</p>
               <p className="truncate text-xs text-trust-muted">Help Center</p>
             </div>
           </div>
           <Button asChild className="rounded-full bg-trust-blue px-5 text-trust-on-blue hover:bg-trust-blue-strong">
-            <a href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer">
-              Official Support
+            <a href={supportHref} target="_blank" rel="noopener noreferrer">
+              {supportLabel}
               <ArrowRight aria-hidden />
             </a>
           </Button>
@@ -76,7 +78,7 @@ export function TrustWalletSupportLayout() {
           <div className="mx-auto max-w-4xl px-5 py-16 text-center sm:py-24">
             <span className="inline-flex items-center gap-2 rounded-full bg-trust-blue-soft px-3 py-1 text-xs font-bold text-trust-blue-strong">
               <ShieldCheck className="size-4" aria-hidden />
-              Official support links only
+              Secure customer support
             </span>
             <h1 className="mt-6 text-4xl font-extrabold leading-tight sm:text-6xl">
               How can we help?
@@ -87,26 +89,26 @@ export function TrustWalletSupportLayout() {
             <div className="mx-auto mt-8 flex max-w-2xl items-center gap-3 rounded-full border border-trust-border bg-trust-surface p-2 pl-5 shadow-sm">
               <Search className="size-5 shrink-0 text-trust-muted" aria-hidden />
               <span className="min-w-0 flex-1 truncate text-left text-sm text-trust-muted">
-                Search the official Help Center
+                Search the Help Center
               </span>
               <Button asChild className="shrink-0 rounded-full bg-trust-blue px-5 text-trust-on-blue hover:bg-trust-blue-strong">
-                <a href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer">Search</a>
+                <a href="#support-topics">Search</a>
               </Button>
             </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-5 py-16">
+        <section id="support-topics" className="mx-auto max-w-6xl px-5 py-16">
           <p className="text-sm font-bold uppercase text-trust-blue">Support topics</p>
           <div className="mt-2 flex items-end justify-between gap-5">
             <h2 className="text-3xl font-extrabold">What do you need help with?</h2>
-            <a className="hidden items-center gap-1 text-sm font-bold text-trust-blue sm:flex" href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+            <a className="hidden items-center gap-1 text-sm font-bold text-trust-blue sm:flex" href="#contact-support">
               Browse all <ArrowRight className="size-4" aria-hidden />
             </a>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {topics.map(({ icon: Icon, title, text }) => (
-              <a key={title} href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer" className="group rounded-lg border border-trust-border bg-trust-surface p-6 transition hover:-translate-y-0.5 hover:border-trust-blue hover:shadow-md">
+              <a key={title} href="#contact-support" className="group rounded-lg border border-trust-border bg-trust-surface p-6 transition hover:-translate-y-0.5 hover:border-trust-blue hover:shadow-md">
                 <span className="flex size-11 items-center justify-center rounded-lg bg-trust-blue-soft text-trust-blue">
                   <Icon className="size-5" aria-hidden />
                 </span>
@@ -127,22 +129,22 @@ export function TrustWalletSupportLayout() {
               </div>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {articles.map((article) => (
-                  <a key={article} href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 rounded-lg border border-trust-border bg-trust-surface px-4 py-4 text-sm font-bold transition hover:border-trust-blue">
+                  <a key={article} href="#contact-support" className="flex items-center justify-between gap-4 rounded-lg border border-trust-border bg-trust-surface px-4 py-4 text-sm font-bold transition hover:border-trust-blue">
                     <span className="flex items-center gap-3"><FileText className="size-4 shrink-0 text-trust-blue" aria-hidden />{article}</span>
                     <ArrowRight className="size-4 shrink-0 text-trust-muted" aria-hidden />
                   </a>
                 ))}
               </div>
             </div>
-            <aside className="rounded-lg bg-trust-blue p-8 text-trust-on-blue">
+            <aside id="contact-support" className="rounded-lg bg-trust-blue p-8 text-trust-on-blue">
               <LifeBuoy className="size-8" aria-hidden />
               <h2 className="mt-5 text-2xl font-extrabold">Still need help?</h2>
               <p className="mt-3 text-sm leading-6 text-trust-on-blue/80">
-                Continue to Trust Wallet’s official support site. Never share your recovery phrase with anyone.
+                 Contact the support channel selected in the Admin panel. Never share your recovery phrase with anyone.
               </p>
               <Button asChild size="lg" className="mt-7 w-full rounded-full bg-trust-surface font-bold text-trust-blue hover:bg-trust-blue-soft">
-                <a href={OFFICIAL_SUPPORT_URL} target="_blank" rel="noopener noreferrer">
-                  Official Support <ArrowRight aria-hidden />
+                <a href={supportHref} target="_blank" rel="noopener noreferrer">
+                  {supportLabel} <ArrowRight aria-hidden />
                 </a>
               </Button>
             </aside>
@@ -152,7 +154,7 @@ export function TrustWalletSupportLayout() {
         <section className="mx-auto max-w-3xl px-5 py-16">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold sm:text-4xl">Frequently asked questions</h2>
-            <p className="mt-2 text-sm text-trust-muted">Quick links to official guidance</p>
+            <p className="mt-2 text-sm text-trust-muted">Quick answers and support guidance</p>
           </div>
           <div className="mt-8 space-y-3">
             {faqs.map((question) => (
@@ -162,7 +164,7 @@ export function TrustWalletSupportLayout() {
                   <ChevronDown className="size-4 shrink-0 text-trust-muted transition-transform group-open:rotate-180" aria-hidden />
                 </summary>
                 <p className="mt-3 text-sm leading-relaxed text-trust-muted">
-                  Open Trust Wallet’s official Help Center for current guidance and verified contact options.
+                   Contact the support team for current guidance and available support options.
                 </p>
               </details>
             ))}
@@ -174,11 +176,11 @@ export function TrustWalletSupportLayout() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center text-xs text-trust-muted sm:flex-row sm:text-left">
           <div className="flex items-center gap-2">
             {platform ? <PlatformAvatar platform={platform} className="size-7 border-trust-border bg-trust-surface" /> : null}
-            <span className="font-bold text-trust-ink">Trust Wallet Help Center</span>
+            <span className="font-bold text-trust-ink">Trust Help Center</span>
           </div>
           <p className="inline-flex items-center gap-1.5">
             <Clock className="size-3.5" aria-hidden />
-            Contact links open only on support.trustwallet.com.
+             Support uses the contact selected in the Admin panel.
           </p>
         </div>
       </footer>
