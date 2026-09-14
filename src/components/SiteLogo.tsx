@@ -6,13 +6,19 @@ export function SiteLogo({
   site,
   className,
 }: {
-  site?: Pick<SupportSite, "platformId" | "logoUrl">;
-  className?: string;
+  site: Pick<SupportSite, "platformId" | "logoUrl"> | undefined;
+  className?: string | undefined;
 }) {
   if (!site) return null;
 
   const platform = getPlatform(site.platformId);
   if (!platform) return null;
 
-  return <PlatformAvatar platform={platform} logoUrl={site.logoUrl} className={className} />;
+  return (
+    <PlatformAvatar
+      platform={platform}
+      logoUrl={site.logoUrl}
+      {...(className ? { className } : {})}
+    />
+  );
 }

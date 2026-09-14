@@ -161,7 +161,7 @@ export function BybitSupportLayout({ site }: { site: SupportSite }) {
 
       <footer className="px-5 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
-          <img src={bybitLogo.url} alt="Bybit" className="h-5 w-auto max-w-20 object-contain" />
+          <SiteLogo site={site} className="size-7 rounded-md border-0" />
           <p>Independent support directory. Bybit links open only on the official bybit.com website.</p>
         </div>
       </footer>

@@ -186,7 +186,7 @@ export function CashAppSupportLayout({ site }: { site: SupportSite }) {
 
       <footer className="px-5 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
-          <img src={cashAppLogo.url} alt="Cash App" className="size-6 rounded-md object-contain" />
+          <SiteLogo site={site} className="size-7 rounded-md border-0" />
           <p>Independent support directory. Cash App links open only on the official cash.app website.</p>
         </div>
       </footer>
