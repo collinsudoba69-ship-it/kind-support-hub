@@ -13,6 +13,7 @@ import { CashAppSupportLayout } from "@/components/CashAppSupportLayout";
 import { ChmeSupportLayout } from "@/components/ChmeSupportLayout";
 import { CryptoSupportLayout } from "@/components/CryptoSupportLayout";
 import { TrustWalletSupportLayout } from "@/components/TrustWalletSupportLayout";
+import { WesternUnionSupportLayout } from "@/components/WesternUnionSupportLayout";
 
 import { CONTACT_METHODS, contactHref, getPlatform, type ContactMethodId } from "@/lib/platforms";
 import { fetchSite, type SupportSite } from "@/lib/sites";
