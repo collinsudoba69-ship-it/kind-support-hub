@@ -60,7 +60,7 @@ export function contactHref(method: ContactMethodId, value: string): string {
     case "whatsapp":
       return `https://wa.me/${encodeURIComponent(v.replace(/[^\d]/g, ""))}`;
     case "email":
-      return `mailto:${encodeURIComponent(v)}`;
+      return `mailto:${v}`;
     case "telegram":
       return `https://t.me/${encodeURIComponent(v.replace(/^@/, ""))}`;
     case "live-chat":
