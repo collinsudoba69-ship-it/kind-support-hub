@@ -144,7 +144,14 @@ function Dashboard() {
             Saved sites
           </h2>
 
-          {!ready ? null : sites.length === 0 ? (
+                    {!isAdmin ? (
+            <div className="panel px-6 py-12 text-center">
+              <p className="font-display text-lg font-semibold">Nothing to show here</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Only the admin account can view saved support sites.
+              </p>
+            </div>
+          ) : !ready ? null : sites.length === 0 ? (
             <div className="panel px-6 py-12 text-center">
               <p className="font-display text-lg font-semibold">No support sites yet</p>
               <p className="mt-2 text-sm text-muted-foreground">
