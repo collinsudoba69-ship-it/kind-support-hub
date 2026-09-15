@@ -296,7 +296,7 @@ export function WesternUnionSupportLayout({ site }: { site?: SupportSite }) {
               T
             </span>
             <span className="font-semibold" style={{ color: INK }}>
-              Transfer Help Guide
+              {site?.title?.trim() || "Transfer Help Guide"}
             </span>
           </div>
           <p className="inline-flex items-center gap-1.5">
